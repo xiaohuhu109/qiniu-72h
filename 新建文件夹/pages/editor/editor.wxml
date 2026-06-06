@@ -1,0 +1,42 @@
+<view class="page-container fade-in" animation="{{pageAnimation}}">
+  <!-- 空状态 -->
+  <view wx:if="{{!hasScene}}" class="empty-state">
+    <text class="empty-icon">✏️</text>
+    <text class="empty-text">暂无场次可编辑</text>
+    <text class="empty-hint">请先从剧本列表中点选要编辑的场次</text>
+  </view>
+
+  <!-- 编辑内容 -->
+  <block wx:else>
+    <!-- 顶部：剧本名 + 场次切换 -->
+    <view class="top-bar">
+      <text class="book-name">{{book.title}}</text>
+      <view class="nav-row">
+        <button class="nav-btn" bindtap="prevScene">◀</button>
+        <text class="nav-label">场次 {{scene.scene_id}}</text>
+        <button class="nav-btn" bindtap="nextScene">▶</button>
+      </view>
+    </view>
+
+    <!-- YAML 编辑区 -->
+    <textarea
+      class="yaml-area {{validationError ? 'error' : ''}}"
+      value="{{yamlText}}"
+      bindinput="onInput"
+      placeholder="YAML 剧本内容，可直接编辑…"
+      auto-height="{{true}}"
+    />
+
+    <!-- 操作按钮 -->
+    <view class="btn-row">
+      <button class="act-btn button-light" bindtap="saveScene">💾 保存</button>
+      <button class="act-btn button-light" bindtap="validateScene">🔍 校验</button>
+      <button class="act-btn button-primary" bindtap="downloadScene">📥 导出</button>
+    </view>
+
+    <!-- 校验结果 -->
+    <view class="msg-box {{validationError ? 'msg-error' : 'msg-ok'}}">
+      <text>{{validationMessage}}</text>
+    </view>
+  </block>
+</view>

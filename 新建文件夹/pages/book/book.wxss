@@ -1,0 +1,44 @@
+.page-container { padding: 28rpx; }
+
+/* 空状态 */
+.empty-state {
+  margin-top: 200rpx; display: flex; flex-direction: column; align-items: center;
+}
+.empty-icon { font-size: 76rpx; margin-bottom: 18rpx; }
+.empty-text { font-size: 30rpx; color: #8899bb; margin-bottom: 8rpx; }
+.empty-hint { font-size: 24rpx; color: #bcc8dd; }
+
+/* 顶部 */
+.top-bar {
+  display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 18rpx;
+}
+.page-title {
+  font-size: 32rpx; font-weight: 700; color: #4B7BF5;
+  max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.page-sub { font-size: 24rpx; color: #8899bb; }
+
+/* 角色筛选 */
+.filter-bar {
+  display: flex; padding-bottom: 12rpx; margin-bottom: 16rpx; gap: 10rpx; white-space: nowrap;
+}
+.tag-btn {
+  display: inline-flex; padding: 12rpx 22rpx; border-radius: 18rpx;
+  border: none; background: #eef3ff; color: #4B7BF5; font-size: 26rpx;
+}
+.tag-btn.active { background: #4B7BF5; color: #fff; }
+
+/* 场次列表 */
+.scene-list { margin-bottom: 20rpx; }
+.scene-card { padding: 22rpx; margin-bottom: 16rpx; }
+.scene-head { margin-bottom: 10rpx; }
+.scene-id   { font-size: 28rpx; font-weight: 700; color: #1a2a4a; margin-right: 14rpx; }
+.scene-meta { display: block; margin-top: 4rpx; color: #8899bb; font-size: 24rpx; }
+.scene-body { }
+.scene-line { display: block; line-height: 38rpx; color: #1a2a4a; font-size: 26rpx; }
+.scene-dialogue { color: #556688; margin-top: 2rpx; }
+
+.empty-filter { text-align: center; color: #bcc8dd; padding: 40rpx 0; font-size: 26rpx; }
+
+/* 下载按钮 */
+.download-btn { width: 100%; padding: 24rpx 0; border-radius: 24rpx; font-size: 30rpx; }

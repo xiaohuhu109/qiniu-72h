@@ -1,0 +1,63 @@
+/* 全局样式 — 主题色 #4B7BF5 浅蓝 */
+page, body {
+  background: linear-gradient(180deg, #f5f8ff 0%, #eef3ff 100%);
+  color: #1a2a4a;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  padding-bottom: 120rpx; /* 给底部自定义 tabBar 留空间 */
+}
+
+.page-container {
+  min-height: 100vh;
+  padding: 28rpx;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 22rpx;
+  box-shadow: 0 8rpx 28rpx rgba(75, 123, 245, 0.06);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card:active {
+  transform: translateY(2rpx);
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  border-radius: 22rpx;
+  padding: 20rpx 28rpx;
+  font-size: 30rpx;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn:active { transform: scale(0.97); }
+
+.button-primary {
+  background: linear-gradient(135deg, #4B7BF5, #3a6ae0);
+  color: #ffffff;
+  box-shadow: 0 8rpx 22rpx rgba(75, 123, 245, 0.22);
+}
+
+.button-light {
+  background: #eef3ff;
+  color: #4B7BF5;
+  border: 1rpx solid #d6e2fc;
+}
+
+.button-danger {
+  background: #ff5a5a;
+  color: #ffffff;
+}
+
+.muted { color: #8899bb; }
+.small-text { font-size: 24rpx; color: #8899bb; }
+
+/* 入场动画 */
+.fade-in { animation: fadeIn 360ms ease both; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(14rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 去除 button 默认边框 */
+button::after { border: none; }

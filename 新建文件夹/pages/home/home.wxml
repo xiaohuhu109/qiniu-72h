@@ -1,0 +1,47 @@
+<view class="page-container fade-in" animation="{{pageAnimation}}">
+  <!-- 标题卡片 -->
+  <view class="title-card card">
+    <text class="title-icon">📖</text>
+    <text class="title-text">小说转剧本工具</text>
+    <text class="title-sub">粘贴文本或上传 TXT 文件，一键生成 YAML 剧本</text>
+  </view>
+
+  <!-- 输入卡片 -->
+  <view class="card input-card">
+    <!-- 文件名提示条 -->
+    <view wx:if="{{fileName}}" class="file-badge">
+      <text class="file-icon">📄</text>
+      <text class="file-name">{{fileName}}</text>
+      <text class="file-clear" bindtap="clearText">✕</text>
+    </view>
+
+    <textarea
+      class="text-area"
+      placeholder="在此粘贴小说全文，按段落自动拆分场次…&#10;&#10;💡 提示：也可先将 TXT 文件发送到微信「文件传输助手」，再点击下方按钮选择。"
+      value="{{textInput}}"
+      bindinput="onTextInput"
+      maxlength="-1"
+    />
+
+    <view class="action-row">
+      <button class="upload-btn button-light" bindtap="chooseTxt">📁 上传 TXT</button>
+      <radio-group class="radio-group" bindchange="onModeChange" value="{{mode}}">
+        <label class="radio-item">
+          <radio value="full" checked="{{mode==='full'}}" color="#4B7BF5" /> 完整版
+        </label>
+        <label class="radio-item">
+          <radio value="lite" checked="{{mode==='lite'}}" color="#4B7BF5" /> 精简版
+        </label>
+      </radio-group>
+    </view>
+
+    <button
+      class="generate-btn button-primary"
+      bindtap="onGenerate"
+      loading="{{loading}}"
+      disabled="{{loading}}"
+    >
+      {{loading ? loadingText : '✨ 开始生成剧本'}}
+    </button>
+  </view>
+</view>

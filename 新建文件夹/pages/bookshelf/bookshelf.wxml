@@ -1,0 +1,51 @@
+<view class="page-container fade-in" animation="{{pageAnimation}}">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="header-title">📚 我的书架</text>
+    <text class="header-sub" wx:if="{{books.length > 0}}">共 {{books.length}} 部</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{books.length === 0}}" class="empty-state">
+    <text class="empty-icon">📭</text>
+    <text class="empty-text">书架是空的</text>
+    <text class="empty-hint">去首页粘贴小说文本，生成您的第一部剧本</text>
+  </view>
+
+  <!-- 书籍网格（仿掌阅 2 列卡片） -->
+  <scroll-view
+    wx:else
+    class="book-grid"
+    scroll-y="true"
+    enable-back-to-top="{{true}}"
+    refresher-enabled="{{true}}"
+    bindrefresherrefresh="onPullDownRefresh"
+  >
+    <block wx:for="{{books}}" wx:key="id">
+      <view class="book-wrapper">
+        <view
+          class="card book-card {{swipeId === item.id ? 'swiped' : ''}}"
+          data-id="{{item.id}}"
+          catchtouchstart="onTouchStart"
+          catchtouchmove="onTouchMove"
+          bindtap="gotoBook"
+        >
+          <view class="cover" style="background-color: {{item.color}};">
+            <text class="cover-char">{{item.title[0] || '📖'}}</text>
+          </view>
+          <view class="book-info">
+            <text class="book-title">{{item.title}}</text>
+            <text class="book-meta">{{item.createdLabel}}</text>
+            <text class="book-tag">{{item.mode === 'full' ? '完整版' : '精简版'}}</text>
+          </view>
+        </view>
+        <button
+          wx:if="{{swipeId === item.id}}"
+          class="delete-btn"
+          data-id="{{item.id}}"
+          bindtap="deleteBook"
+        >删除</button>
+      </view>
+    </block>
+  </scroll-view>
+</view>

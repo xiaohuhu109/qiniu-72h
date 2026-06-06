@@ -1,0 +1,44 @@
+<view class="page-container fade-in" animation="{{pageAnimation}}">
+  <!-- 空状态 -->
+  <view wx:if="{{!hasBook}}" class="empty-state">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">暂无剧本</text>
+    <text class="empty-hint">去首页生成您的第一个剧本</text>
+  </view>
+
+  <!-- 剧本内容 -->
+  <block wx:else>
+    <view class="top-bar">
+      <text class="page-title">📋 {{book.title}}</text>
+      <text class="page-sub">{{book.scenes.length}} 场 · {{book.mode === 'full' ? '完整版' : '精简版'}}</text>
+    </view>
+
+    <!-- 角色筛选条 -->
+    <scroll-view class="filter-bar" scroll-x="true" show-scrollbar="{{false}}">
+      <button class="tag-btn {{filterCharacter === '' ? 'active' : ''}}" data-name="" bindtap="chooseCharacter">全部</button>
+      <block wx:for="{{characters}}" wx:key="*this">
+        <button class="tag-btn {{filterCharacter === item ? 'active' : ''}}" data-name="{{item}}" bindtap="chooseCharacter">{{item}}</button>
+      </block>
+    </scroll-view>
+
+    <!-- 场次列表 -->
+    <view class="scene-list">
+      <block wx:for="{{filteredScenes}}" wx:key="scene_id">
+        <view class="card scene-card fade-in" data-id="{{item.scene_id}}" bindtap="gotoEditor">
+          <view class="scene-head">
+            <text class="scene-id">场次 {{item.scene_id}}</text>
+            <text class="scene-meta">{{item.location}} · {{item.env_type}} · {{item.time}}</text>
+          </view>
+          <view class="scene-body">
+            <text class="scene-line">🎭 {{item.character}}</text>
+            <text class="scene-line scene-dialogue">💬 {{item.dialogue}}</text>
+          </view>
+        </view>
+      </block>
+      <view wx:if="{{filteredScenes.length === 0}}" class="empty-filter">该角色暂无场次</view>
+    </view>
+
+    <!-- 下载按钮 -->
+    <button class="download-btn button-primary" bindtap="downloadAll">📥 下载全本 YAML</button>
+  </block>
+</view>
