@@ -1,0 +1,78 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 110rpx;
+  padding-top: 8rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: linear-gradient(180deg, #e8ddd0 0%, #d8cbb8 100%);
+  border-top: 1rpx solid #c9b8a0;
+  box-shadow: 
+    0 -4rpx 24rpx rgba(61, 43, 31, 0.08),
+    inset 0 2rpx 4rpx rgba(255, 255, 255, 0.3);
+  z-index: 999;
+}
+
+/* 羊皮纸纹理 */
+.tab-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.tab-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  height: 100%;
+  padding-top: 6rpx;
+  transition: all 200ms ease;
+}
+
+.tab-icon {
+  font-size: 38rpx;
+  line-height: 44rpx;
+  margin-bottom: 2rpx;
+  transition: transform 200ms ease;
+  color: #8b7355;
+}
+
+.tab-item.active .tab-icon {
+  transform: scale(1.12);
+  color: #3d2b1f;
+}
+
+.tab-label {
+  font-size: 20rpx;
+  line-height: 26rpx;
+  color: #8b7355;
+  transition: color 200ms ease;
+  font-family: "Noto Serif SC", serif;
+}
+
+.tab-item.active .tab-label {
+  color: #3d2b1f;
+  font-weight: 600;
+}
+
+.tab-dot {
+  position: absolute;
+  bottom: 6rpx;
+  width: 8rpx;
+  height: 6rpx;
+  border-radius: 3rpx;
+  background: #3d2b1f;
+}
