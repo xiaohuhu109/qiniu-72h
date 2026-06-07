@@ -1,0 +1,207 @@
+/* 全局样式 — 羊皮纸复古风格 */
+page, body {
+  background-color: #f5f0e8;
+  color: #3d2b1f;
+  font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  padding-bottom: 120rpx;
+}
+
+/* 羊皮纸纹理背景 */
+page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* 噪点纹理 */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    /* 渐变底色 */
+    linear-gradient(135deg, #f5f0e8 0%, #e8ddd0 50%, #f0e8d8 100%);
+  background-size: 200rpx 200rpx, 100% 100%;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 羊皮纸质感 - 斑驳效果 */
+.parchment {
+  position: relative;
+  background: linear-gradient(135deg, #f8f4ec 0%, #f0e8d8 100%);
+  border: 1rpx solid #c9b8a0;
+  box-shadow: 
+    inset 0 0 60rpx rgba(139, 115, 85, 0.1),
+    0 4rpx 16rpx rgba(61, 43, 31, 0.08);
+}
+
+.parchment::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* 边缘做旧效果 */
+.parchment-aged {
+  position: relative;
+  background: #f5f0e8;
+  border: 1rpx solid #c9b8a0;
+}
+
+.parchment-aged::before {
+  content: "";
+  position: absolute;
+  top: -2rpx;
+  left: -2rpx;
+  right: -2rpx;
+  bottom: -2rpx;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(139, 115, 85, 0.1) 25%, 
+    transparent 50%,
+    rgba(139, 115, 85, 0.15) 75%,
+    transparent 100%
+  );
+  border-radius: 20rpx;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-container {
+  min-height: 100vh;
+  padding: 32rpx;
+}
+
+/* 复古卡片 - 带羊皮纸质感 */
+.card {
+  background: linear-gradient(135deg, rgba(248, 244, 236, 0.9) 0%, rgba(240, 232, 216, 0.9) 100%);
+  border: 1rpx solid #c9b8a0;
+  border-radius: 16rpx;
+  box-shadow: 
+    inset 0 0 40rpx rgba(139, 115, 85, 0.05),
+    0 4rpx 20rpx rgba(61, 43, 31, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* 复古按钮 */
+.btn {
+  display: inline-block;
+  text-align: center;
+  border-radius: 12rpx;
+  padding: 24rpx 32rpx;
+  font-size: 28rpx;
+  transition: all 200ms ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3d2b1f 0%, #4a3525 100%);
+  color: #f5f0e8;
+  box-shadow: 
+    0 4rpx 16rpx rgba(61, 43, 31, 0.3),
+    inset 0 1rpx 0 rgba(255, 255, 255, 0.1);
+  border: 1rpx solid #2d1f15;
+}
+
+.btn-primary:active {
+  background: #4d3a2d;
+  transform: scale(0.98);
+}
+
+.btn-light {
+  background: rgba(209, 196, 178, 0.4);
+  color: #3d2b1f;
+  border: 1rpx solid #c9b8a0;
+}
+
+/* 打字机字体 */
+.typewriter {
+  font-family: "Courier New", Courier, monospace;
+}
+
+/* 标题样式 */
+.title-main {
+  font-size: 48rpx;
+  font-weight: bold;
+  letter-spacing: 8rpx;
+  color: #3d2b1f;
+  text-shadow: 1rpx 1rpx 2rpx rgba(139, 115, 85, 0.2);
+}
+
+.title-sub {
+  font-size: 24rpx;
+  font-style: italic;
+  color: #8b7355;
+}
+
+/* 分割线 - 复古双线 */
+.divider {
+  height: 2rpx;
+  background: linear-gradient(90deg, transparent 0%, #c9b8a0 50%, transparent 100%);
+  margin: 24rpx 0;
+  position: relative;
+}
+
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 4rpx;
+  left: 10%;
+  right: 10%;
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent 0%, #d1c4b2 50%, transparent 100%);
+}
+
+/* 文本颜色 */
+.text-muted {
+  color: #8b7355;
+}
+
+.text-main {
+  color: #3d2b1f;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  background: rgba(201, 184, 160, 0.3);
+  border: 1rpx solid #c9b8a0;
+  border-radius: 4rpx;
+  color: #8b7355;
+}
+
+/* 墨水痕迹效果 */
+.ink-stain {
+  position: relative;
+}
+
+.ink-stain::after {
+  content: "";
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  background: radial-gradient(circle, rgba(61, 43, 31, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}

@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/bookshelf/bookshelf",
+    "pages/book/book",
+    "pages/editor/editor",
+    "pages/help/help"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f5f0e8",
+    "navigationBarTitleText": "幕笺",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8b7355",
+    "selectedColor": "#3d2b1f",
+    "backgroundColor": "#e8ddd0",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/bookshelf/bookshelf",
+        "text": "书架"
+      },
+      {
+        "pagePath": "pages/help/help",
+        "text": "说明"
+      }
+    ]
+  }
+}
