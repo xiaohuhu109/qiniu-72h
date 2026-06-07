@@ -1,0 +1,52 @@
+<view class="page-container fade-in" animation="{{pageAnimation}}">
+  <!-- 使用教程 -->
+  <view class="card section">
+    <text class="sec-title">📖 使用教程</text>
+    <view class="step">
+      <text class="step-num">1</text>
+      <text class="step-text">在首页粘贴小说文本或上传 TXT 文件</text>
+    </view>
+    <view class="step">
+      <text class="step-num">2</text>
+      <text class="step-text">选择「完整版」或「精简版」剧本模式</text>
+    </view>
+    <view class="step">
+      <text class="step-num">3</text>
+      <text class="step-text">点击「开始生成剧本」自动跳转剧本页</text>
+    </view>
+    <view class="step">
+      <text class="step-num">4</text>
+      <text class="step-text">在剧本页按角色筛选场次，点击进入编辑</text>
+    </view>
+    <view class="step">
+      <text class="step-num">5</text>
+      <text class="step-text">编辑页可修改、校验、导出单场 YAML</text>
+    </view>
+  </view>
+
+  <!-- YAML 格式 -->
+  <view class="card section">
+    <text class="sec-title">📝 YAML 剧本格式规范</text>
+    <view class="yaml-sample">
+      <text>script_id: 1</text>
+      <text>scene_info:</text>
+      <text>  location: 客厅</text>
+      <text>  env_type: 内景</text>
+      <text>  time: 夜晚</text>
+      <text>character: 张三</text>
+      <text>action: 坐在沙发上</text>
+      <text>dialogue: 你好</text>
+    </view>
+    <view class="note">• 完整版包含 <text class="hl">action</text> 字段，精简版省略</view>
+    <view class="note">• 按场次拆分：换地点或换时间视为新场次</view>
+    <view class="note">• 所有数据保存在本地存储，离线可用</view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="card section">
+    <text class="sec-title">💡 关于项目</text>
+    <view class="note">Novel2Script 是一款本地小程序工具，将小说文本快速转为结构化 YAML 剧本格式。</view>
+    <view class="note">不依赖后端服务，不生成 AI 番外，不上传用户数据。</view>
+    <view class="note">符合小程序比赛提交要求。</view>
+  </view>
+</view>

@@ -1,0 +1,133 @@
+<view class="page-container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">{{script.title}}</text>
+  </view>
+
+  <!-- 剧本元信息 -->
+  <view class="meta-card card">
+    <view class="meta-header">
+      <view class="meta-titles">
+        <text class="meta-label">剧本元信息</text>
+        <text class="script-title">{{script.title}}</text>
+      </view>
+      <view class="cover-thumb" style="background-color: {{script.coverColor}};"></view>
+    </view>
+    
+    <view class="meta-stats">
+      <view class="stat-item">
+        <view class="stat-icon">👥</view>
+        <view class="stat-info">
+          <text class="stat-label">角色数量</text>
+          <text class="stat-value">{{script.charactersCount}} 位</text>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-icon">☰</view>
+        <view class="stat-info">
+          <text class="stat-label">场次总数</text>
+          <text class="stat-value">{{script.scenesCount}} 场</text>
+        </view>
+      </view>
+      <view class="stat-item">
+        <view class="stat-icon">ℹ</view>
+        <view class="stat-info">
+          <text class="stat-label">来源小说</text>
+          <text class="stat-value truncate">{{script.originalNovel}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 筛选栏 -->
+  <view class="filter-section card" wx:if="{{allLocations.length > 0 || allCharacters.length > 0}}">
+    <view class="filter-header">
+      <text class="filter-title">🔍 筛选场次</text>
+      <text class="filter-clear" wx:if="{{filterLocation || filterCharacter}}" bindtap="clearFilter">清除筛选</text>
+    </view>
+    
+    <!-- 按地点筛选 -->
+    <view class="filter-group" wx:if="{{allLocations.length > 0}}">
+      <text class="filter-label">按地点：</text>
+      <scroll-view class="filter-tags" scroll-x>
+        <view 
+          class="filter-tag {{filterLocation === item ? 'active' : ''}}" 
+          wx:for="{{allLocations}}" 
+          wx:key="*this"
+          bindtap="filterByLocation"
+          data-location="{{item}}"
+        >
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+    
+    <!-- 按人物筛选 -->
+    <view class="filter-group" wx:if="{{allCharacters.length > 0}}">
+      <text class="filter-label">按人物：</text>
+      <scroll-view class="filter-tags" scroll-x>
+        <view 
+          class="filter-tag {{filterCharacter === item ? 'active' : ''}}" 
+          wx:for="{{allCharacters}}" 
+          wx:key="*this"
+          bindtap="filterByCharacter"
+          data-character="{{item}}"
+        >
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 场次列表 -->
+  <view class="scenes-section">
+    <view class="section-header">
+      <text class="section-title">场次列表</text>
+      <text class="section-count">共 {{filteredScenes.length}} 场{{filterLocation || filterCharacter ? '（已筛选）' : '已生成'}}</text>
+    </view>
+
+    <view class="scenes-list">
+      <view 
+        class="scene-card card" 
+        wx:for="{{filteredScenes}}" 
+        wx:key="id"
+        wx:for-index="index"
+        bindtap="goToEditor"
+        data-id="{{item.id}}"
+      >
+        <view class="scene-number">{{item.sceneIndex || (index + 1)}}</view>
+        <view class="scene-content">
+          <text class="scene-title">{{item.title}}</text>
+          <text class="scene-setting typewriter">{{item.setting}}</text>
+          <!-- 显示本场人物 -->
+          <view class="scene-characters" wx:if="{{item.characters && item.characters.length > 0}}">
+            <text class="character-tag" wx:for="{{item.characters}}" wx:for-item="char" wx:key="*this">{{char}}</text>
+          </view>
+          <view class="scene-preview">
+            <text class="quote-mark">"</text>
+            <text class="preview-text">{{item.preview}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{filteredScenes.length === 0}}">
+      <text class="empty-text">没有找到符合条件的场次</text>
+      <text class="empty-hint">试试其他筛选条件</text>
+    </view>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="save-section" wx:if="{{isAIGenerated && !isSaved}}">
+    <button class="save-btn" bindtap="saveToBookshelf">
+      <text class="save-icon">💾</text>
+      <text>保存到书架</text>
+    </button>
+  </view>
+
+  <!-- 已保存提示 -->
+  <view class="saved-hint" wx:if="{{isSaved}}">
+    <text>✓ 已保存到书架</text>
+  </view>
+</view>

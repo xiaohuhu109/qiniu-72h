@@ -1,0 +1,87 @@
+<view class="page-container">
+  <!-- 空状态 -->
+  <view wx:if="{{!hasScene}}" class="empty-state">
+    <text class="empty-icon">✏️</text>
+    <text class="empty-text">暂无场次可编辑</text>
+    <text class="empty-hint">请先从剧本列表中点选要编辑的场次</text>
+  </view>
+
+  <!-- 编辑内容 -->
+  <block wx:else>
+    <!-- 页面标题 -->
+    <view class="page-header">
+      <text class="page-title">{{scene.title}}</text>
+    </view>
+
+    <!-- 场次信息 -->
+    <view class="scene-info card">
+      <text class="scene-setting typewriter">{{scene.setting}}</text>
+      <text class="scene-preview">{{scene.preview}}</text>
+    </view>
+
+    <!-- YAML 编辑区 -->
+    <view class="editor-card card">
+      <view class="editor-header">
+        <text class="editor-label">剧本内容 (YAML)</text>
+        <text class="editor-action" bindtap="exportScene">导出</text>
+      </view>
+      <textarea
+        class="yaml-area typewriter"
+        value="{{yamlText}}"
+        bindinput="onInput"
+        placeholder="YAML 剧本内容，可直接编辑..."
+        maxlength="-1"
+      />
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="btn-row">
+      <button class="btn btn-light" bindtap="saveScene">保存修改</button>
+      <button class="btn btn-primary" bindtap="showExportOptions">导出剧本</button>
+    </view>
+
+    <!-- 查看原文按钮 -->
+    <view class="original-text-section" wx:if="{{originalText}}">
+      <button class="btn btn-text" bindtap="showOriginalText">📖 查看小说原文</button>
+    </view>
+  </block>
+
+  <!-- 原文弹窗 -->
+  <view class="original-modal {{showOriginal ? 'show' : ''}}" wx:if="{{showOriginal}}" bindtap="hideOriginalText">
+    <view class="original-content" catchtap="preventHide">
+      <view class="original-header">
+        <text class="original-title">📖 小说原文</text>
+        <text class="original-close" bindtap="hideOriginalText">✕</text>
+      </view>
+      <scroll-view class="original-scroll" scroll-y>
+        <text class="original-body typewriter">{{originalText}}</text>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 导出选项弹窗 -->
+  <view class="export-modal {{showExport ? 'show' : ''}}" wx:if="{{showExport}}" bindtap="hideExportOptions">
+    <view class="export-content" catchtap="preventHide">
+      <view class="export-header">
+        <text class="export-title">📤 导出剧本</text>
+        <text class="export-close" bindtap="hideExportOptions">✕</text>
+      </view>
+      <view class="export-options">
+        <view class="export-option" bindtap="copyToClipboard">
+          <text class="export-icon">📋</text>
+          <view class="export-info">
+            <text class="export-name">复制到剪贴板</text>
+            <text class="export-desc">直接复制 YAML 文本</text>
+          </view>
+        </view>
+        <view class="export-option" bindtap="downloadTxtFile">
+          <text class="export-icon">📄</text>
+          <view class="export-info">
+            <text class="export-name">下载 TXT 文件</text>
+            <text class="export-desc">保存为 .txt 格式文件</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

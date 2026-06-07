@@ -1,0 +1,72 @@
+<view class="page-container">
+  <!-- 标题区 -->
+  <view class="header">
+    <text class="title-main">幕笺</text>
+    <text class="title-sub">让每一部小说，都有银幕的可能</text>
+  </view>
+
+  <!-- 输入区 -->
+  <view class="input-section card">
+    <view class="input-header">
+      <text class="input-label">小说输入区</text>
+      <view class="upload-btn" bindtap="chooseTxt">
+        <text class="upload-icon">↑</text>
+        <text>上传文件</text>
+      </view>
+    </view>
+    
+    <textarea
+      class="novel-input typewriter"
+      placeholder="粘贴小说章节内容..."
+      value="{{textInput}}"
+      bindinput="onTextInput"
+      bindblur="onTextBlur"
+      maxlength="-1"
+    />
+  </view>
+
+  <!-- 生成按钮 -->
+  <button 
+    class="generate-btn {{!hasInput || loading ? 'disabled' : ''}}" 
+    bindtap="handleGenerate"
+    disabled="{{!hasInput || loading}}"
+  >
+    <block wx:if="{{loading}}">
+      <view class="loading-icon">⟳</view>
+      <text>正在解析剧情...</text>
+    </block>
+    <block wx:else>
+      <text class="btn-icon">📝</text>
+      <text>生成剧本</text>
+    </block>
+  </button>
+
+  <!-- 最近生成 -->
+  <view class="recent-section" wx:if="{{recentScripts.length > 0}}">
+    <view class="section-header">
+      <text class="section-title">最近生成</text>
+      <text class="view-all" bindtap="goToBookshelf">查看全部</text>
+    </view>
+    
+    <view class="recent-list">
+      <view 
+        class="recent-item card" 
+        wx:for="{{recentScripts}}" 
+        wx:key="id"
+        bindtap="goToScriptDetail"
+        data-id="{{item.id}}"
+      >
+        <view class="cover" style="background-color: {{item.coverColor}};"></view>
+        <view class="info">
+          <text class="script-title">{{item.title}}</text>
+          <view class="meta">
+            <text class="meta-icon">◷</text>
+            <text>{{item.lastEdited}}</text>
+            <text class="dot">·</text>
+            <text>{{item.scenesCount}} 场</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
