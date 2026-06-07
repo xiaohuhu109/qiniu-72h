@@ -1,0 +1,281 @@
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 40rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #3d2b1f;
+  margin-bottom: 16rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #8b7355;
+}
+
+/* 页面标题 */
+.page-header {
+  margin-bottom: 32rpx;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #3d2b1f;
+  display: block;
+  text-align: center;
+}
+
+/* 场次信息 */
+.scene-info {
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+}
+
+.scene-setting {
+  font-size: 24rpx;
+  color: #8b7355;
+  display: block;
+  margin-bottom: 16rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #d1c4b2;
+}
+
+.scene-preview {
+  font-size: 28rpx;
+  color: #5a4a3a;
+  line-height: 1.6;
+  display: block;
+}
+
+/* 编辑器卡片 */
+.editor-card {
+  margin-bottom: 32rpx;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  border-bottom: 1rpx solid #d1c4b2;
+  margin-bottom: 16rpx;
+}
+
+.editor-label {
+  font-size: 26rpx;
+  color: #8b7355;
+  font-weight: 500;
+}
+
+.editor-action {
+  font-size: 26rpx;
+  color: #8b4513;
+}
+
+.yaml-area {
+  width: 100%;
+  min-height: 600rpx;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1rpx solid #d1c4b2;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 26rpx;
+  line-height: 1.8;
+  color: #3d2b1f;
+  box-sizing: border-box;
+}
+
+/* 按钮行 */
+.btn-row {
+  display: flex;
+  gap: 24rpx;
+}
+
+.btn-row .btn {
+  flex: 1;
+}
+
+/* 查看原文按钮 */
+.original-text-section {
+  margin-top: 32rpx;
+  padding: 0 32rpx;
+}
+
+.btn-text {
+  width: 100%;
+  height: 88rpx;
+  background: transparent;
+  border: 2rpx dashed #8b7355;
+  border-radius: 44rpx;
+  color: #8b7355;
+  font-size: 28rpx;
+}
+
+.btn-text::after {
+  border: none;
+}
+
+/* 原文弹窗 */
+.original-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.original-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.original-content {
+  width: 100%;
+  height: 70vh;
+  background: #f5f0e8;
+  border-radius: 32rpx 32rpx 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.original-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx;
+  border-bottom: 1rpx solid #d1c4b2;
+}
+
+.original-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #3d2b1f;
+}
+
+.original-close {
+  font-size: 36rpx;
+  color: #8b7355;
+  padding: 8rpx 16rpx;
+}
+
+.original-scroll {
+  flex: 1;
+  padding: 32rpx;
+}
+
+.original-body {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #3d2b1f;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* 导出弹窗 */
+.export-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.export-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.export-content {
+  width: 100%;
+  background: #f5f0e8;
+  border-radius: 32rpx 32rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40rpx;
+}
+
+.export-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32rpx;
+  border-bottom: 1rpx solid #d1c4b2;
+}
+
+.export-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #3d2b1f;
+}
+
+.export-close {
+  font-size: 36rpx;
+  color: #8b7355;
+  padding: 8rpx 16rpx;
+}
+
+.export-options {
+  padding: 20rpx 32rpx;
+}
+
+.export-option {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 24rpx;
+  margin-bottom: 20rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16rpx;
+  border: 1rpx solid #d1c4b2;
+}
+
+.export-option:active {
+  background: rgba(139, 115, 85, 0.1);
+}
+
+.export-icon {
+  font-size: 48rpx;
+  margin-right: 24rpx;
+}
+
+.export-info {
+  flex: 1;
+}
+
+.export-name {
+  font-size: 30rpx;
+  color: #3d2b1f;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.export-desc {
+  font-size: 24rpx;
+  color: #8b7355;
+  display: block;
+}
