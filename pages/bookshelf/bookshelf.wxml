@@ -1,0 +1,43 @@
+<view class="page-container">
+  <view class="header">
+    <text class="header-title">我的书架</text>
+    <text class="header-sub">保存您的每一次创作灵感</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{scripts.length === 0}}" class="empty-state">
+    <text class="empty-icon">📚</text>
+    <text class="empty-text">书架空空如也</text>
+    <text class="empty-hint">快去首页生成剧本吧</text>
+    <view class="start-btn" bindtap="goToHome">立即开始</view>
+  </view>
+
+  <!-- 书架网格 -->
+  <view wx:else class="bookshelf-grid">
+    <view 
+      class="book-card card" 
+      wx:for="{{scripts}}" 
+      wx:key="id"
+      bindtap="goToScript"
+      data-id="{{item.id}}"
+    >
+      <view class="cover-wrapper" style="background-color: {{item.coverColor}};">
+        <view class="cover-overlay"></view>
+        <view class="original-novel">{{item.originalNovel}}</view>
+      </view>
+      <view class="book-info">
+        <text class="book-title">{{item.title}}</text>
+        <view class="book-meta">
+          <view class="meta-item">
+            <text class="meta-icon">☰</text>
+            <text>{{item.scenesCount}} 场次</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-icon">◷</text>
+            <text>{{item.lastEdited}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

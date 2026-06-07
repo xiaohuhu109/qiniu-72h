@@ -1,0 +1,185 @@
+.header {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.title-main {
+  font-size: 56rpx;
+  font-weight: bold;
+  letter-spacing: 16rpx;
+  color: #3d2b1f;
+  display: block;
+}
+
+.title-sub {
+  font-size: 24rpx;
+  font-style: italic;
+  color: #8b7355;
+  margin-top: 12rpx;
+  display: block;
+}
+
+/* 输入区 */
+.input-section {
+  padding: 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #d1c4b2;
+  margin-bottom: 16rpx;
+}
+
+.input-label {
+  font-size: 22rpx;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 4rpx;
+  color: #8b7355;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  font-size: 24rpx;
+  color: #3d2b1f;
+  padding: 8rpx 16rpx;
+  background: rgba(209, 196, 178, 0.3);
+  border-radius: 8rpx;
+}
+
+.upload-icon {
+  font-size: 20rpx;
+}
+
+.novel-input {
+  width: 100%;
+  height: 400rpx;
+  background: transparent;
+  border: none;
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #3d2b1f;
+}
+
+/* 生成按钮 */
+.generate-btn {
+  width: 100%;
+  padding: 32rpx;
+  background: #3d2b1f;
+  color: #f5f0e8;
+  border-radius: 16rpx;
+  font-size: 32rpx;
+  letter-spacing: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rpx;
+  box-shadow: 0 8rpx 24rpx rgba(61, 43, 31, 0.2);
+  margin-bottom: 48rpx;
+}
+
+.generate-btn.disabled {
+  background: #d1c4b2;
+  box-shadow: none;
+}
+
+.generate-btn::after {
+  border: none;
+}
+
+.btn-icon {
+  font-size: 36rpx;
+}
+
+.loading-icon {
+  animation: rotate 1s linear infinite;
+  font-size: 32rpx;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 最近生成 */
+.recent-section {
+  margin-top: 16rpx;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+}
+
+.view-all {
+  font-size: 24rpx;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  color: #8b7355;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 24rpx;
+}
+
+.cover {
+  width: 80rpx;
+  height: 112rpx;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.script-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #3d2b1f;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  color: #8b7355;
+}
+
+.meta-icon {
+  font-size: 20rpx;
+}
+
+.dot {
+  margin: 0 8rpx;
+}

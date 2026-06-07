@@ -1,0 +1,69 @@
+.page-container { padding: 28rpx; }
+
+.section {
+  margin-bottom: 22rpx;
+  padding: 26rpx;
+  border-radius: 20rpx;
+}
+
+.sec-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #4B7BF5;
+  margin-bottom: 18rpx;
+}
+
+/* 步骤 */
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 14rpx;
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38rpx;
+  height: 38rpx;
+  min-width: 38rpx;
+  border-radius: 50%;
+  background: #4B7BF5;
+  color: #fff;
+  font-size: 22rpx;
+  font-weight: 700;
+  margin-right: 14rpx;
+  margin-top: 2rpx;
+}
+.step-text {
+  font-size: 26rpx;
+  color: #1a2a4a;
+  line-height: 40rpx;
+}
+
+/* YAML 示例 */
+.yaml-sample {
+  background: #f8faff;
+  padding: 20rpx;
+  border-radius: 14rpx;
+  font-size: 26rpx;
+  line-height: 38rpx;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  color: #1a2a4a;
+  margin-bottom: 16rpx;
+}
+
+/* 说明 */
+.note {
+  margin-bottom: 8rpx;
+  font-size: 26rpx;
+  color: #1a2a4a;
+  line-height: 38rpx;
+}
+.hl {
+  color: #4B7BF5;
+  font-weight: 600;
+  background: #eef3ff;
+  padding: 2rpx 8rpx;
+  border-radius: 6rpx;
+}
